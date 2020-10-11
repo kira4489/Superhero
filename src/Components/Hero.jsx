@@ -21,6 +21,7 @@ export default class Hero extends Component {
       <>
       <Navbar/>
       <div className="container">
+        <h1 className="titulo">Superheroes</h1>
       <div class="row text-center">
         {this.state.heroes.length > 0 && this.state.heroes.map(hero => (
           <div class="col-lg-3 col-md-6 mb-4">
