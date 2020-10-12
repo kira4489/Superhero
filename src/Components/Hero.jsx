@@ -22,28 +22,33 @@ export default class Hero extends Component {
       <Navbar/>
       <div className="container">
         <h1 className="titulo">Superheroes</h1>
-      <div class="row text-center">
+      <div className="row text-center">
         {this.state.heroes.length > 0 && this.state.heroes.map(hero => (
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
+          <div className="col-lg-3 col-md-6 mb-4">
+            <div className="card">
             <img
                 class="card-img-top"
                 src={hero.image.url}
                 alt=""
               />
-              <div class="card-body">
-                <h4 class="card-title"></h4>
-              <p>{hero.information}</p>
+              <div className="card-body">
+                <h4 className="card-title"></h4>
+              <p>{hero.name}</p>
+        <p>Publisher:{hero.biography.publisher}</p>
                 <p class="card-text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Sapiente esse necessitatibus neque.
                 </p>
               </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">
-                  Find Out More!
+              <div className="card-footer">
+                <a href="#" className="btn btn-primary">
+                 Me gusta
+                </a>
+                <a href="#" className="btn btn-primary">
+                 No me gusta
                 </a>
               </div>
+              <button id="boton" className="btn btn-success">Mas informacion</button>
             </div>
           </div>
             ))}
