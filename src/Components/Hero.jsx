@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import "../css/Hero.css";
+import { Link } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -42,7 +43,7 @@ export default class Hero extends Component {
               <div className="card-body">
                 <h4 className="card-title"></h4>
               <p>{hero.name}</p>
-        <p>Publisher:{hero.biography.publisher}</p>
+        <p>Publisher: {hero.biography.publisher}</p>
                 {/* <p class="card-text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Sapiente esse necessitatibus neque.
