@@ -11,3 +11,12 @@
 #boton{
     width: 100%;
 }
+
+#redes{
+    margin-left: 20px;
+}
+
+.card{
+    width: 15rem;
+    height: 34rem;
+}

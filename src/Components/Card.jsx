@@ -6,7 +6,7 @@ export default class Card extends Component{
     };
     componentDidMount(){
         fetch("https://www.superheroapi.com/api.php/812821986161019/")
-
+      
     }
 
     render() {
