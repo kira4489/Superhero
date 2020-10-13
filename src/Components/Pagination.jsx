@@ -1,45 +1,47 @@
-  
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import {
-  faChevronCircleLeft,
-  faChevronCircleRight,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 
-const Pagination = ({ heroPerPage, totalHero, paginate }) => {
-  const pageNumbers = [];
-
-  for (let i = 1; i <= Math.ceil(totalHero / heroPerPage); i++) {
-    pageNumbers.push(i);
-  }
-
+const Pagination = ({ page, setPage }) => {
   return (
-    <div className="py-2  w-100">
-      <nav className="block">
-        <ul className="flex pl-0 rounded list-none flex-wrap">
-          <li>            
-              <FontAwesomeIcon class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-teal-500 bg-teal-500 text-white" icon={faChevronCircleLeft}></FontAwesomeIcon>           
+    <>
+      <p className="actual-page">Actual page: {page}</p>
+      <nav aria-label="Page">
+        <ul className="pagination">
+          <li className="page-item">
+            <button
+              className="page-link"
+              onClick={() => setPage(page - 1)}
+              aria-label="Previous"
+            >
+              <span aria-hidden="true">&laquo;</span>
+            </button>
           </li>
-          {pageNumbers.map((e) => {
-            return (
-              <li key={e} className="">
-                <Link
-                  to="/"
-                  className="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-teal-500 text-black bg-white hover:bg-gray-500"
-                  onClick={() => paginate(e)}
-                >
-                  {e}
-                </Link>
-              </li>
-            );
-          })}
-          <li>            
-              <FontAwesomeIcon class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-teal-500 bg-teal-500 text-white" icon={faChevronCircleRight}></FontAwesomeIcon>           
+          <li className="page-item">
+            <button className="page-link" onClick={() => setPage(1)}>
+              1
+            </button>
+          </li>
+          <li className="page-item">
+            <button className="page-link" onClick={() => setPage(2)}>
+              2
+            </button>
+          </li>
+          <li className="page-item">
+            <button className="page-link" onClick={() => setPage(3)}>
+              3
+            </button>
+          </li>
+          <li className="page-item">
+            <button
+              className="page-link"
+              onClick={() => setPage(page + 1)}
+              aria-label="Next"
+            >
+              <span aria-hidden="true">&raquo;</span>
+            </button>
           </li>
         </ul>
       </nav>
-    </div>
+    </>
   );
 };
 
