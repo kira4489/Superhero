@@ -58,7 +58,7 @@ export default class Hero extends Component {
                  No me gusta
                 </a> */}
               </div>
-              <button id="boton" className="btn btn-success"> Informacion</button>
+              <button id="boton" className="btn btn-success" > Informacion</button>
             </div>
           </div>
             ))}
