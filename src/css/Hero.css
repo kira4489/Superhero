@@ -10,10 +10,11 @@
 
 #boton{
     width: 100%;
+    margin-top: -2px;
 }
 
 #redes{
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .card{

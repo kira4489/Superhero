@@ -50,10 +50,10 @@ export default class Hero extends Component {
                 </p> */}
               </div>
               <div className="card-footer">
-              <FontAwesomeIcon id="redes" icon={faThumbsUp}/>
+              <FontAwesomeIcon id="redes" icon={faThumbsUp}/>0
                 {/* <a href="#" className="btn btn-primary">
                 </a> */}
-            <FontAwesomeIcon id="redes" icon={faThumbsDown}/>
+            <FontAwesomeIcon id="redes" icon={faThumbsDown}/>0
                 {/* <a href="#" className="btn btn-primary">
                  No me gusta
                 </a> */}
