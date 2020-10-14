@@ -42,6 +42,7 @@ class Hero extends Component {
     this.setState({page: this.state.page - 9}, () => this.fetchData())
 }
 
+
 render() {
     return (
       <>

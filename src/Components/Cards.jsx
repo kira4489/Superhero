@@ -6,13 +6,15 @@ class Cards extends Component {
   state = {
     heroe: {},
   };
+  
   componentDidMount() {
     const id = this.props.match.params.id;
     fetch(`https://www.superheroapi.com/api.php/812821986161019/${id}`)
       .then((response) => response.json())
       .then((data) => this.setState({ heroe: data }));
   }
-  render() {
+
+render() {
     console.log(this.state.heroe);
     return (
       <div className="container">
@@ -60,6 +62,7 @@ class Cards extends Component {
                 </ul>
               </div>
             </div>
+            <button className="btn btn-primary" onClick={() => this.props.history.push(`/`)}>Atras</button>
           </div>
         )}
       </div>
