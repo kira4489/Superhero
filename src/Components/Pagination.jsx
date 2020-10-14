@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/Pagination.css"
 
 const Pagination = ({ next, prev }) => {
   return (
@@ -12,7 +13,7 @@ const Pagination = ({ next, prev }) => {
               onClick={() => prev()}
               aria-label="Previous"
             >
-              <span aria-hidden="true">&laquo;</span>
+              <span aria-hidden="true">Prev</span>
             </button>
           </li>
           <li className="page-item">
@@ -21,7 +22,7 @@ const Pagination = ({ next, prev }) => {
               onClick={() => next()}
               aria-label="Next"
             >
-              <span aria-hidden="true">&raquo;</span>
+              <span aria-hidden="true">Next</span>
             </button>
           </li>
         </ul>
