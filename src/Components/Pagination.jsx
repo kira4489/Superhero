@@ -1,39 +1,24 @@
 import React from "react";
 
-const Pagination = ({ page, setPage }) => {
+const Pagination = ({ next, prev }) => {
   return (
     <>
-      <p className="actual-page">Actual page: {page}</p>
+      {/* <p className="actual-page">Actual page: {page}</p> */}
       <nav aria-label="Page">
         <ul className="pagination">
           <li className="page-item">
             <button
               className="page-link"
-              onClick={() => setPage(page - 1)}
+              onClick={() => prev()}
               aria-label="Previous"
             >
               <span aria-hidden="true">&laquo;</span>
             </button>
           </li>
           <li className="page-item">
-            <button className="page-link" onClick={() => setPage(1)}>
-              1
-            </button>
-          </li>
-          <li className="page-item">
-            <button className="page-link" onClick={() => setPage(2)}>
-              2
-            </button>
-          </li>
-          <li className="page-item">
-            <button className="page-link" onClick={() => setPage(3)}>
-              3
-            </button>
-          </li>
-          <li className="page-item">
             <button
               className="page-link"
-              onClick={() => setPage(page + 1)}
+              onClick={() => next()}
               aria-label="Next"
             >
               <span aria-hidden="true">&raquo;</span>

@@ -16,12 +16,11 @@ function App() {
     <div className="App">
        <Router>
         <Switch>
-          <Route exact  path="/:id" render={(props)=> <Cards {...props}/>}></Route>
+          <Route exact  path="/card/:id" component={Cards} />
           <Route exact path="/">
             <Home  />
           </Route>
-          
-        </Switch>
+          </Switch>
       </Router>
       {/* <Home/> */}
     </div>

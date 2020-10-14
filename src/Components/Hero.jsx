@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import "../css/Hero.css";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom"
+import Pagination from "./Pagination"
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,13 +12,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 library.add(fas, faThumbsUp, faThumbsDown);
 
-export default class Hero extends Component {
+class Hero extends Component {
   state = {
     heroes: [],
+    page: 1
   };
 
-  componentDidMount() {
-    for (let i = 1; i <= 9; i++) {
+  fetchData = () => {
+    for (let i = this.state.page; i <= 8 + this.state.page; i++) {
       fetch(`https://www.superheroapi.com/api.php/812821986161019/${i}`)
         .then((response) => response.json())
         .then((data) =>
@@ -26,8 +28,21 @@ export default class Hero extends Component {
     }
   }
 
-  render() {
-    console.log(this.state.heroes);
+  componentDidMount() {
+    this.fetchData()
+  }
+  
+  next = () => {
+    this.setState({ heroes: [] })
+    this.setState({ page: this.state.page + 9 }, () => this.fetchData())
+}
+
+  prev =()=>{
+    this.setState({ heroes: [] })
+    this.setState({page: this.state.page - 9}, () => this.fetchData())
+}
+
+render() {
     return (
       <>
         <Navbar />
@@ -48,16 +63,20 @@ export default class Hero extends Component {
                       <FontAwesomeIcon id="redes" icon={faThumbsUp} />0
                       <FontAwesomeIcon id="redes" icon={faThumbsDown} />0
                     </div>
-                    <button id="boton" className="btn btn-success">
-                      {" "}
+                    <button id="boton" className="btn btn-success" onClick={() => this.props.history.push(`/card/${hero.id}`)}>
                       Informacion
                     </button>
                   </div>
                 </div>
               ))}
           </div>
+          <Pagination next={this.next} prev={this.prev}/>
         </div>
       </>
     );
   }
 }
+
+
+
+export default withRouter(Hero);
