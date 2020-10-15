@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import "../css/Hero.css";
-import { withRouter } from "react-router-dom"
+import { withRouter, useParams } from "react-router-dom"
 import Pagination from "./Pagination"
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,6 +18,7 @@ class Hero extends Component {
     page: 1
   };
 
+
   fetchData = () => {
     for (let i = this.state.page; i <= 8 + this.state.page; i++) {
       fetch(`https://www.superheroapi.com/api.php/812821986161019/${i}`)
@@ -27,6 +28,19 @@ class Hero extends Component {
         );
     }
   }
+
+save(){
+  let saveinfo= (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  };
+}
+  
+info(){
+let getInfo = (key) => {
+    const info = localStorage.getItem(key);
+    return info ? JSON.parse(info) : undefined;
+};
+}
 
   componentDidMount() {
     this.fetchData()
@@ -61,8 +75,8 @@ render() {
                       <p>Publisher: {hero.biography.publisher}</p>
                     </div>
                     <div className="card-footer">
-                      <FontAwesomeIcon id="redes" icon={faThumbsUp} />0
-                      <FontAwesomeIcon id="redes" icon={faThumbsDown} />0
+                      <FontAwesomeIcon id="redes" icon={faThumbsUp} onClick={this.info}/>0
+                      <FontAwesomeIcon id="redes" icon={faThumbsDown} onClick={this.save}/>0
                     </div>
                     <button id="boton" className="btn btn-success" onClick={() => this.props.history.push(`/card/${hero.id}`)}>
                       Informacion
